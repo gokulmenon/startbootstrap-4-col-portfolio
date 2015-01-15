@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,91 +66,20 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Acrylic Paintings on Canvas
+                <h1 class="page-header">
+                    Acrylic Paintings on Canvas
                     <small> hit inquire for quote on prices </small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
-
         <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
+            <div id="content2">
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
             </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
+            <hr>
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination -->
+            <!-- Pagination
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
@@ -178,8 +107,10 @@
                 </ul>
             </div>
         </div>
-        <!-- /.row -->
-
+        -->
+        <div class="row text-center">
+            <div id="page-selection"></div>
+        </div>
         <hr>
 
         <!-- Footer -->
@@ -193,14 +124,115 @@
         </footer>
 
     </div>
-    <!-- /.container -->
+            <!-- /.container -->
+            <!-- jQuery -->
+            <script src="js/jquery.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="js/jquery.bootpag.min.js"></script>
+            <!-- Add mousewheel plugin (this is optional) -->
+            <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
+            <!-- Add fancyBox -->
+            <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+            <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+            <!-- Optionally add helpers - button, thumbnail and/or media -->
+            <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+            <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+            <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+            <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+            <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+            <script>
+                $('#page-selection').bootpag({
+                    total: 3,
+                    page: 1,
+                    maxVisible: 5
+                }).on('page', function (event, num) {
+                    $("#content2").load("gallery_pages/page" + num + ".html"); // or some ajax content loading...
+                });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".fancybox").fancybox({
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                    var innerHtml = '<div class="row">'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big1.jpg" title="test1">'
+                                + '<img class="img-responsive" src="images/paintings_thumb1.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big2.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb2.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big3.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb3.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big4.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb4.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                    + '</div>'
+                    + '<!-- /.row -->'
+                    + '<!-- Projects Row -->'
+                    + '<div class="row">'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big5.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb5.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big6.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb6.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big7.jpg">'
+                               + '<img class="img-responsive" src="./images/paintings_thumb7.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big8.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb8.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                    + '</div>'
+                    + '<!-- /.row -->'
+                    + '<!-- Projects Row -->'
+                    + '<div class="row">'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big9.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb9.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big10.jpg">'
+                               + ' <img class="img-responsive" src="./images/paintings_thumb10.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big11.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb11.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                        + '<div class="col-md-3 portfolio-item">'
+                            + '<a class="fancybox" rel="gallery1" href="images/paintings_big12.jpg">'
+                                + '<img class="img-responsive" src="./images/paintings_thumb12.jpg" alt="">'
+                            + '</a>'
+                        + '</div>'
+                    + '</div>'
+                    document.getElementById("content2").innerHTML = innerHtml;
+                });
+            </script>
 </body>
 
 </html>
